@@ -1,0 +1,175 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0e14" />
+  <meta
+    name="description"
+    content="Gráfica 3D interactiva de los diez videos más vistos."
+  />
+  <title>TOP 10 | Videos más vistos</title>
+  <link rel="stylesheet" href="/src/top10/style.css" />
+</head>
+
+<body>
+  <main class="dashboard">
+    <header class="hero">
+      <p class="eyebrow">
+        <span class="status-dot"></span>
+        ANALÍTICA DEL CANAL
+      </p>
+
+      <h1>TOP 10 <span>VIDEOS MÁS VISTOS</span></h1>
+
+      <p class="subtitle">
+        Explora el rendimiento de los videos más vistos del canal.
+        Selecciona una barra tridimensional para consultar sus estadísticas.
+      </p>
+
+      <div class="hero-rule"></div>
+    </header>
+
+    <section class="scene-card" aria-labelledby="scene-heading">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">RANKING DE CONTENIDO</p>
+          <h2 id="scene-heading">Reproducciones por video</h2>
+        </div>
+        <span class="top-badge">TOP 10 · 3D</span>
+      </div>
+
+      <div id="chart-stage" class="chart-stage">
+        <canvas
+          id="chart-canvas"
+          aria-label="Gráfica tridimensional de barras. Usa el selector de videos inferior para cambiar de selección."
+        ></canvas>
+        
+      <div
+        id="bar-tooltip"
+        class="bar-tooltip"
+        role="status"
+        aria-hidden="true"
+      >
+        <span id="tooltip-rank" class="tooltip-rank">VIDEO #01</span>
+        <strong id="tooltip-title">Título del video</strong>
+        <span class="tooltip-views">
+          <span aria-hidden="true">▶</span>
+          <span id="tooltip-views">0 vistas</span>
+        </span>
+      </div>
+
+
+        <div id="loading" class="scene-message" role="status">
+          Preparando escena 3D…
+        </div>
+
+        <div class="scene-legend" aria-hidden="true">
+          <span class="legend-swatch"></span>
+          <span>Vistas por video</span>
+        </div>
+      </div>
+
+      <div class="scene-footer">
+        <p id="chart-status" role="status">
+          Cargando datos…
+        </p>
+        <p>Selecciona una barra para ver el detalle.</p>
+      </div>
+    </section>
+
+    <section
+      id="video-details"
+      class="details-card"
+      aria-labelledby="details-heading"
+      aria-live="polite"
+    >
+      <div class="details-header">
+        <div>
+          <p class="section-kicker">ANÁLISIS INDIVIDUAL</p>
+          <h2 id="details-heading">Estadísticas del video</h2>
+        </div>
+        <span id="video-rank" class="rank-badge">#01</span>
+      </div>
+
+      <h3 id="video-title" class="video-title">
+        Selecciona un video
+      </h3>
+
+     <div class="stats-grid">
+        <article class="stat-box stat-views">
+          <span class="stat-label">VISTAS</span>
+          <strong id="video-views">—</strong>
+          <span class="stat-caption">Reproducciones totales</span>
+        </article>
+
+        <article class="stat-box">
+          <span class="stat-label">ME GUSTA</span>
+          <strong id="video-likes">—</strong>
+          <span class="stat-caption">Interacciones positivas</span>
+        </article>
+
+        <article class="stat-box">
+          <span class="stat-label">COMENTARIOS</span>
+          <strong id="video-comments">—</strong>
+          <span class="stat-caption">Participación de la audiencia</span>
+        </article>
+
+        <article class="stat-box stat-engagement">
+          <span class="stat-label">ENGAGEMENT POR VISTA</span>
+          <strong id="video-engagement">—</strong>
+          <span class="stat-caption">Interacciones / vistas</span>
+        </article>
+
+        <!-- NUEVA TARJETA DE VISTAS POR DÍA -->
+        <article class="stat-box">
+          <span class="stat-label">VISTAS POR DÍA</span>
+          <strong id="views-per-day">—</strong>
+          <span class="stat-caption">Promedio diario estimado</span>
+        </article>
+
+        <!-- link videos -->
+        <a
+          id="watch-video-link"
+          class="video-preview"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden
+          aria-label="Ver video en YouTube"
+        >
+          <img
+            id="video-thumbnail"
+            src=""
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="video-preview-play" aria-hidden="true">▶</span>
+          <span class="video-preview-label">Ver en YouTube</span>
+        </a>
+      </div>
+
+      <p class="formula-note">
+        Engagement por vista = (me gusta + comentarios) ÷ vistas × 100.
+      </p>
+
+      <div class="video-selector">
+        <label for="video-select">Seleccionar video</label>
+        <select id="video-select">
+          <option value="">Cargando videos…</option>
+        </select>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <span>VISUALIZACIÓN 3D</span>
+      <span>TOP 10 · ANALÍTICA DE CONTENIDO</span>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/top10/main.js"></script>
+  
+</body>
+</html>
